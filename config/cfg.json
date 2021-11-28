@@ -1,0 +1,24 @@
+{
+	"input": {
+		"device": "/dev/ttyUSB0",
+        "baud_rate": 115200,
+        "n_inputs": 4,
+        "labels": ["cotovelo", "indicador", "pulso", "ombro"]
+    },
+    "output": {
+        "osc_addr": "0.0.0.0",
+        "osc_port": "13003",
+        "osc_channel": "/controller",
+        "n_outputs": 4,
+        "params": [
+            {"from_input": 0, "mapping": "linear", 
+		"type": "discrete", "opts": [100.0, 200.0, 220.0, 400.0]},
+            {"from_input": 1, "mapping": "exp", 
+		"type": "continuous", "opts": [1.0, 10.0]},
+            {"from_input": 2, "mapping": "log", 
+		"type": "threshold", "opts": [0.5]},
+            {"from_input": 3, "mapping": "linear", 
+		"type": "differential", "opts": [0.98]}
+        ]
+    }
+}
